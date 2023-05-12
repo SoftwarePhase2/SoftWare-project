@@ -1,6 +1,7 @@
 package cleaningServices.Acceptance;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
@@ -54,7 +55,7 @@ public void theProductWillBeSavedInTheProductListWithInTreatmentState() {
 	Products.addProduct(product);
 	int numOfProductAfterAdd=Products.getProducts().size();
 	assertEquals(numOfProductBeforeAdd+1,numOfProductAfterAdd);
-	assertEquals(product.getStatus(), "in treatment");
+	assertEquals("in treatment",product.getStatus());
 
 }
 
@@ -75,14 +76,14 @@ public void theProductWillBeSavedInTheProductListWithWaitingState() {
 	Products.addProduct(product);
 	int numOfProductAfterAdd=Products.getProducts().size();
 	assertEquals(numOfProductBeforeAdd+1,numOfProductAfterAdd);
-	assertEquals(product.getStatus(), "waiting");
+	assertEquals( "waiting",product.getStatus());
 }
 
 
 @Then("the worker will be not available")
 public void theWorkerWillBeNotAvailable() {
 	Workers.getWorkers().get(idWorker).setAvailable(false);
-	assertTrue(Workers.getAvailableWorkerId()!=idWorker);
+	assertNotEquals(Workers.getAvailableWorkerId(),idWorker);
 	
 	
 }

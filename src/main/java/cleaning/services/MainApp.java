@@ -17,7 +17,7 @@ public class MainApp {
 
 	
 	public static void main(String[] args) {
-	      LOGGER.setLevel(Level.INFO);
+	    LOGGER.setLevel(Level.INFO);
 		MyAppInfo myAppInfo=new MyAppInfo();
 		Scanner scan=new Scanner(System.in);
 		int customerId=3;

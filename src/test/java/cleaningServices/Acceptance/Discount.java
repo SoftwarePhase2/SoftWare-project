@@ -18,7 +18,7 @@ public class Discount {
 	@Given("product with hieght {int}, width {int} , catogery {string}")
 	public void productWithHieghtWidthCatogery(Integer height, Integer width, String catogery) {
 		this.width=width;
-		this.height=height;
+		this.height=height;	
 		this.catogery=catogery;
 	}
 	@Then("the customer will have a discount by {double} for the total price")

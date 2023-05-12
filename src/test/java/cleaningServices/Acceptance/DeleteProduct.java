@@ -1,5 +1,6 @@
 package cleaningServices.Acceptance;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
@@ -14,7 +15,7 @@ public class DeleteProduct {
 	public void theProductWillBeDeletedFromTheProductList() {
 		int sizeBeforeDelete=Products.getProducts().size();
 	    Products.deleteProduct(product);
-	    assertTrue(sizeBeforeDelete==Products.getProducts().size()+1);
+	    assertEquals(sizeBeforeDelete,Products.getProducts().size()+1);
 	}
 
 	@Then("the message that the product is not exist will be print")

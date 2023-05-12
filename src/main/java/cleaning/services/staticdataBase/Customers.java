@@ -2,17 +2,23 @@ package cleaning.services.staticdatabase;
 
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.logging.*;
 import model.Customer;
 
 public class Customers {
+	
+	private Customers() {
+	    throw new IllegalStateException("Utility class");
+	}
+	private static final Logger LOGGER = Logger.getLogger(Customers.class.getName());
 	private static List <Customer> customers=new ArrayList();
         
         static
         {
+        	LOGGER.setLevel(Level.INFO);
         	customers.add(new Customer(0,12345,"ahmad","jenin"));
-        	customers.add(new Customer(1,12345,"mohammad","jenin"));
-        	customers.add(new Customer(2,12345,"khaled","jenin"));
+        	customers.add(new Customer(1,12345,"mohammad","jerusalem"));
+        	customers.add(new Customer(2,12345,"khaled","hebron"));
         }
 
 
@@ -41,7 +47,7 @@ public class Customers {
 	}
 
 	public static void noCustomer() {
-		System.out.println("The Customer Is Not Exist");		
+		LOGGER.warning("The Customer Is Not Exist");
 	}
 
 	public static List<Customer> findCustomerByName(String name) {
@@ -57,10 +63,10 @@ public class Customers {
 	public static void displayCustomer(Customer customer) {
 		if(customer==null)
 		{
-			System.out.println("This customer is not exist");
+			LOGGER.warning("This customer is not exist");
 		}
 		else 
-			System.out.println("id: "+customer.getId()+"	name: "+customer.getName()+"	phone: "+customer.getPhone()+"	Address: "+customer.getAddress());
+			LOGGER.info("id: "+customer.getId()+"\tname: "+customer.getName()+"\tphone: "+customer.getPhone()+"\tAddress: "+customer.getAddress());
 	}
 	public static void displayCustomers(List<Customer> customers) {
 		for(Customer c:customers)

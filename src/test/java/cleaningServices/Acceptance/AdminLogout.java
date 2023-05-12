@@ -12,7 +12,7 @@ public class AdminLogout {
 	@Given("that the administrator is logged in")
 	public void thatTheAdministratorIsLoggedIn() {
 		myAppInfo.login();
-		assertTrue(myAppInfo.isLoggedIn()==true);
+		assertTrue(myAppInfo.isLoggedIn());
 	
 	}
 

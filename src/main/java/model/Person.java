@@ -3,8 +3,10 @@ package model;
 public class Person {
 
 	
-	private int id,phone;
-	private String name,address;
+	private int id;
+	private int phone;
+	private String name;
+	private String address;
 		
 		
 		public Person(int id,int phone,String name,String address)
