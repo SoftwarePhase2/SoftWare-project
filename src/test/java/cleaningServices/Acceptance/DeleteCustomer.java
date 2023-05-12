@@ -2,7 +2,7 @@ package cleaningServices.Acceptance;
 
 import static org.junit.Assert.assertEquals;
 
-import cleaning.services.staticdataBase.Customers;
+import cleaning.services.staticdatabase.Customers;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import model.Customer;

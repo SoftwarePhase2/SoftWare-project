@@ -1,4 +1,4 @@
-package cleaning.services.staticdataBase;
+package cleaning.services.staticdatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,7 +43,7 @@ public class Customers {
 	}
 
 	public static List<Customer> findCustomerByName(String name) {
-		List<Customer> customersByName = new ArrayList<Customer>();
+		List<Customer> customersByName = new ArrayList<>();
 		for(Customer c:customers)
 		{
 			if(c.getName().contains(name))
