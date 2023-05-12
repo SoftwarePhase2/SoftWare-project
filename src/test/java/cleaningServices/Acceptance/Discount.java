@@ -25,7 +25,8 @@ public class Discount {
 	@Then("the customer will have a discount by {double} for the total price")
 	public void theCustomerWillHaveADiscountByForTheTotalPrice(Double discountRate) {
 		int priceWithDiscount=AppCalculations.calculatePriceWithDiscount(height, width, catogery);
-		assertEquals(""+AppCalculations.calculatePrice(height, width, catogery)*(1-discountRate),""+priceWithDiscount);
+		int num1=(int)Math.round(AppCalculations.calculatePrice(height, width, catogery)*(1-discountRate));
+		assertEquals(num1,priceWithDiscount);
 		
 	}
 }
