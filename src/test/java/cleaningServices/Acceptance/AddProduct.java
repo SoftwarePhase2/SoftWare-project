@@ -6,9 +6,9 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
-import cleaning.services.staticdatabase.AppCustomers;
-import cleaning.services.staticdatabase.AppProducts;
-import cleaning.services.staticdatabase.AppWorkers;
+import cleaning.services.staticdatabas.AppCustomers;
+import cleaning.services.staticdatabas.AppProducts;
+import cleaning.services.staticdatabas.AppWorkers;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import model.Customer;

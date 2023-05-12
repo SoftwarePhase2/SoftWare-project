@@ -3,9 +3,9 @@ package cleaning.services;
 import java.util.Scanner;
 import java.util.logging.*;
 
-import cleaning.services.staticdatabase.AppCustomers;
-import cleaning.services.staticdatabase.AppProducts;
-import cleaning.services.staticdatabase.AppWorkers;
+import cleaning.services.staticdatabas.AppCustomers;
+import cleaning.services.staticdatabas.AppProducts;
+import cleaning.services.staticdatabas.AppWorkers;
 import model.Customer;
 import model.Product;
 
