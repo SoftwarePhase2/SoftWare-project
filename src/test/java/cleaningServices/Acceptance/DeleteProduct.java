@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import cleaning.services.staticdatabas.AppProducts;
+import cleaning.services.staticdatabase.AppProducts;
 import io.cucumber.java.en.Then;
 import model.Product;
 

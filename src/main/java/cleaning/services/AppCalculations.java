@@ -1,6 +1,6 @@
 package cleaning.services;
 
-import cleaning.services.staticdatabas.AppProducts;
+import cleaning.services.staticdatabase.AppProducts;
 import model.Product;
 
 public class AppCalculations {

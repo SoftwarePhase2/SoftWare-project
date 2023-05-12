@@ -1,4 +1,4 @@
-package cleaning.services.staticdatabas;
+package cleaning.services.staticdatabase;
 
 import java.util.ArrayList;
 import java.util.List;

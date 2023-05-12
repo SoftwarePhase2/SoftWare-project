@@ -8,7 +8,7 @@ import model.Product;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import cleaning.services.staticdatabas.*;
+import cleaning.services.staticdatabase.*;
 
 public class UpdateProduct {	
 

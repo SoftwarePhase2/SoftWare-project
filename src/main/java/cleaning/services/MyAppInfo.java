@@ -2,7 +2,7 @@ package cleaning.services;
 
 import java.util.logging.Logger;
 
-import cleaning.services.staticdatabas.AdminDB;
+import cleaning.services.staticdatabase.AdminDB;
 import model.AdminInfo;
 
 public class MyAppInfo {
