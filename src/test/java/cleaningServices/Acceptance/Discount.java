@@ -1,5 +1,6 @@
 package cleaningServices.Acceptance;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import cleaning.services.AppCalculations;
@@ -24,7 +25,7 @@ public class Discount {
 	@Then("the customer will have a discount by {double} for the total price")
 	public void theCustomerWillHaveADiscountByForTheTotalPrice(Double discountRate) {
 		int priceWithDiscount=AppCalculations.calculatePriceWithDiscount(height, width, catogery);
-		assertTrue(AppCalculations.calculatePrice(height, width, catogery)*(1-discountRate)==priceWithDiscount);
+		assertEquals(""+AppCalculations.calculatePrice(height, width, catogery)*(1-discountRate),""+priceWithDiscount);
 		
 	}
 }

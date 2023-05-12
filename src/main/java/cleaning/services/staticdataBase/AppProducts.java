@@ -7,13 +7,13 @@ import java.util.logging.*;
 import cleaning.services.AppLogger;
 import model.Product;
 
-public class Products {
-	   private static final Logger LOGGER = Logger.getLogger(Products.class.getName());
+public class AppProducts {
+	   private static final Logger LOGGER = Logger.getLogger(AppProducts.class.getName());
 	   private static final String COMPLETE = "complete";  // Compliant
 
-	   private static List<Product> products=new ArrayList();
+	   private static List<Product> products=new ArrayList<Product>();
 
-	   private Products() {
+	   private AppProducts() {
 		    throw new IllegalStateException("Utility class");
 	   }
         static
@@ -34,7 +34,7 @@ public class Products {
 	}
 	
 	public static Product findProduct(Integer id) {
-		for(Product pro:Products.getProducts())
+		for(Product pro:AppProducts.getProducts())
 		{
 			if(pro.getId()==id) 
 			{

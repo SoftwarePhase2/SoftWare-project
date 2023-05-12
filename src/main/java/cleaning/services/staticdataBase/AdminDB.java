@@ -5,13 +5,12 @@ import java.util.List;
 import model.AdminInfo;
 
 public class AdminDB {
-	static List <AdminInfo> admins;
+	static List <AdminInfo> admins=new ArrayList<AdminInfo>();
         
 	private AdminDB() {
 	    throw new IllegalStateException("Utility class");
 	}
         static{
-        	admins=new ArrayList<AdminInfo>();
         	admins.add(new AdminInfo("ahmad","123456"));
         	admins.add(new AdminInfo("ahmad","true Pass"));
         	admins.add(new AdminInfo("mohammad","654da"));

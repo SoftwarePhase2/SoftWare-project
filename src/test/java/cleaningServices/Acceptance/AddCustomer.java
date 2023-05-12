@@ -6,7 +6,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import cleaning.services.MyAppInfo;
-import cleaning.services.staticdatabase.Customers;
+import cleaning.services.staticdatabase.AppCustomers;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import model.Customer;
@@ -27,8 +27,8 @@ public class AddCustomer {
 
 	@Then("the customer will be saved in the list")
 	public void theCustomerWillBeSavedInTheList() {
-		Customers.addCustomer(customer);
-		assertEquals(customer, Customers.getCutomers().get(Customers.getCutomers().size()-1));
+		AppCustomers.addCustomer(customer);
+		assertEquals(customer, AppCustomers.getCutomers().get(AppCustomers.getCutomers().size()-1));
 	}
 
 	

@@ -17,7 +17,7 @@ Product product;
 
 @Given("there is a product with id {int}")
 public void thereIsAProductWithId(Integer id) {
-	product = Products.findProduct(id);
+	product = AppProducts.findProduct(id);
 }
 
 @When("the admin want to change the name of the product to {string}")

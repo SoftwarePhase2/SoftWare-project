@@ -5,11 +5,11 @@ import java.util.List;
 
 import model.Worker;
 
-public class Workers {
+public class AppWorkers {
 	
 	private static List <Worker> workers=new ArrayList<Worker>();
 	
-	private Workers() {
+	private AppWorkers() {
 	    throw new IllegalStateException("Utility class");
 	}
     static 

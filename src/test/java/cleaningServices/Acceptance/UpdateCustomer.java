@@ -3,7 +3,7 @@ package cleaningServices.Acceptance;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import cleaning.services.staticdatabase.Customers;
+import cleaning.services.staticdatabase.AppCustomers;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import model.Customer;
@@ -12,7 +12,7 @@ public class UpdateCustomer {
 	Customer customer;
 	@When("the admin want to change the name of the customer to {string}")
 	public void theAdminWantToChangeTheNameOfTheCustomerTo(String name) {
-	    customer = Customers.findCustomer(2);
+	    customer = AppCustomers.findCustomer(2);
 		customer.setName(name);
 	}
 
@@ -23,7 +23,7 @@ public class UpdateCustomer {
 
 	@When("the admin want to change the address of the customer to {string}")
 	public void theAdminWantToChangeTheAddressOfTheCustomerTo(String address) {
-		customer = Customers.findCustomer(2);
+		customer = AppCustomers.findCustomer(2);
 		customer.setAddress(address);
 	}
 
@@ -35,7 +35,7 @@ public class UpdateCustomer {
 
 	@When("the admin want to change the phone of the customer to {int}")
 	public void theAdminWantToChangeThePhoneOfTheCustomerTo(Integer phone) {
-		customer = Customers.findCustomer(2);
+		customer = AppCustomers.findCustomer(2);
 		customer.setPhone(phone);
 	}
 

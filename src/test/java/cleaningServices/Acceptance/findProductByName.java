@@ -18,12 +18,12 @@ List <Product> products;
 
 @Given("search about the product with name {string}")
 public void searchAboutTheProductWithName(String name) {
-	products= Products.findProductsByName(name);	
+	products= AppProducts.findProductsByName(name);	
 }
 
 @Then("display all information about products found")
 public void displayAllInformationAboutProductsFound() {
-	Products.displayProducts(products);
+	AppProducts.displayProducts(products);
 	assertEquals(1, products.get(0).getId());
 
 }

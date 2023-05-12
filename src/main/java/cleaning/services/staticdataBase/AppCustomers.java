@@ -7,13 +7,13 @@ import java.util.logging.*;
 import cleaning.services.AppLogger;
 import model.Customer;
 
-public class Customers {
+public class AppCustomers {
 	
 	
-	private Customers() {
+	private AppCustomers() {
 	    throw new IllegalStateException("Utility class");
 	}
-	private static final Logger LOGGER = Logger.getLogger(Customers.class.getName());
+	private static final Logger LOGGER = Logger.getLogger(AppCustomers.class.getName());
 	private static List <Customer> customers=new ArrayList<Customer>();
         
         static
@@ -34,7 +34,7 @@ public class Customers {
 	}
 	
 	public static Customer findCustomer(int id) {
-		for(Customer customer:Customers.getCutomers())
+		for(Customer customer:AppCustomers.getCutomers())
 		{
 			if(customer.getId()==id) 
 			{

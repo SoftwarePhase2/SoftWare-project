@@ -3,9 +3,9 @@ package cleaning.services;
 import java.util.Scanner;
 import java.util.logging.*;
 
-import cleaning.services.staticdatabase.Customers;
-import cleaning.services.staticdatabase.Products;
-import cleaning.services.staticdatabase.Workers;
+import cleaning.services.staticdatabase.AppCustomers;
+import cleaning.services.staticdatabase.AppProducts;
+import cleaning.services.staticdatabase.AppWorkers;
 import model.Customer;
 import model.Product;
 
@@ -65,7 +65,7 @@ public class MainApp {
 						String openCus=scan.nextLine();
 						if(openCus.equals("0"))
 						{
-							Customers.displayCustomers(Customers.getCutomers());
+							AppCustomers.displayCustomers(AppCustomers.getCutomers());
 						}
 						else if(openCus.equals("1"))
 						{
@@ -76,7 +76,7 @@ public class MainApp {
 							LOGGER.info("Please Enter customer address");
 							scan.nextLine();
 							Customer customer=new Customer(customerId++, phone, name, scan.nextLine());
-							Customers.addCustomer(customer);
+							AppCustomers.addCustomer(customer);
 							LOGGER.info("The customer is added successfully");
 
 						}
@@ -92,14 +92,14 @@ public class MainApp {
 								if(openCusFind.equals("1"))
 								{
 									LOGGER.info("The ID of the customer you want: ");
-									Customers.displayCustomer(Customers.findCustomer(scan.nextInt()));
+									AppCustomers.displayCustomer(AppCustomers.findCustomer(scan.nextInt()));
 									scan.nextLine();
 									
 								}
 								else if(openCusFind.equals("2"))
 								{
 									LOGGER.info("The name of the customers you want: ");
-									Customers.displayCustomers(Customers.findCustomerByName(scan.nextLine()));
+									AppCustomers.displayCustomers(AppCustomers.findCustomerByName(scan.nextLine()));
 								}
 								else if(openCusFind.equals("3"))
 								{
@@ -116,9 +116,9 @@ public class MainApp {
 						else if(openCus.equals("3"))
 						{
 							LOGGER.info("The ID of the customer for updating: ");
-							Customer customerUpdate = Customers.findCustomer(scan.nextInt());
+							Customer customerUpdate = AppCustomers.findCustomer(scan.nextInt());
 							scan.nextLine();
-							Customers.displayCustomer(customerUpdate);
+							AppCustomers.displayCustomer(customerUpdate);
 							if(customerUpdate==null)
 							{
 								break;
@@ -136,7 +136,7 @@ public class MainApp {
 								{
 									LOGGER.info("The new name of the customer you want to update: ");
 									customerUpdate.setName(scan.nextLine());
-									Customers.displayCustomer(customerUpdate);
+									AppCustomers.displayCustomer(customerUpdate);
 									
 								}
 								else if(openCusFind.equals("2"))
@@ -144,13 +144,13 @@ public class MainApp {
 									LOGGER.info("The new phone number of the customer you want to update: ");
 									customerUpdate.setPhone(scan.nextInt());
 									scan.nextLine();
-									Customers.displayCustomer(customerUpdate);
+									AppCustomers.displayCustomer(customerUpdate);
 								}
 								else if(openCusFind.equals("3"))
 								{
 									LOGGER.info("The new address of the customer you want to update: ");
 									customerUpdate.setAddress(scan.nextLine());
-									Customers.displayCustomer(customerUpdate);
+									AppCustomers.displayCustomer(customerUpdate);
 								}
 								else if(openCusFind.equals("4"))
 								{
@@ -168,12 +168,12 @@ public class MainApp {
 						else if(openCus.equals("4"))
 						{
 							LOGGER.info("The ID of the customer for deleting: ");
-							Customer customerDelete = Customers.findCustomer(scan.nextInt());
+							Customer customerDelete = AppCustomers.findCustomer(scan.nextInt());
 							scan.nextLine();
-							Customers.deleteCustomer(customerDelete);
+							AppCustomers.deleteCustomer(customerDelete);
 							if(customerDelete==null)
 							{
-								Customers.noCustomer();
+								AppCustomers.noCustomer();
 							}
 							else
 							{
@@ -210,7 +210,7 @@ public class MainApp {
 						String openPro=scan.nextLine();
 						if(openPro.equals("0"))
 						{
-							Products.displayProducts(Products.getProducts());
+							AppProducts.displayProducts(AppProducts.getProducts());
 						}
 						else if(openPro.equals("1"))
 						{
@@ -250,12 +250,12 @@ public class MainApp {
 							LOGGER.info("Please Enter product idCustomer");
 							int idCustomer=scan.nextInt();
 							scan.nextLine();
-							if(Customers.findCustomer(idCustomer)==null)
+							if(AppCustomers.findCustomer(idCustomer)==null)
 							{
-								Customers.noCustomer();
+								AppCustomers.noCustomer();
 								continue;
 							}
-							int idWorker=Workers.getAvailableWorkerId();
+							int idWorker=AppWorkers.getAvailableWorkerId();
 							String status;
 							
 							if(idWorker==-1)
@@ -267,10 +267,10 @@ public class MainApp {
 							{
 								status="in treatment";
 								LOGGER.info("The product is in treatment status");
-								Workers.getWorkers().get(idWorker).setAvailable(false);
+								AppWorkers.getWorkers().get(idWorker).setAvailable(false);
 							}
 							Product product=new Product(productId++,name,catogery,width,height,description,idCustomer,idWorker,status);
-							Products.addProduct(product);
+							AppProducts.addProduct(product);
 							if(AppCalculations.calculatePriceForAllProducts(idCustomer)>400)
 							{
 								LOGGER.info("Congratulations you have a discount because you use the service with an amount of money > 400 ");
@@ -297,7 +297,7 @@ public class MainApp {
 								if(openProFind.equals("1"))
 								{
 									LOGGER.info("The ID of the product you want: ");
-									Products.displayProduct(Products.findProduct(scan.nextInt()));
+									AppProducts.displayProduct(AppProducts.findProduct(scan.nextInt()));
 									scan.nextLine();
 									
 								}
@@ -305,7 +305,7 @@ public class MainApp {
 								{
 									LOGGER.info("The name of the product you want: ");
 
-									Products.displayProducts(Products.findProductsByName(scan.nextLine()));
+									AppProducts.displayProducts(AppProducts.findProductsByName(scan.nextLine()));
 								}
 								else if(openProFind.equals("3"))
 								{
@@ -328,14 +328,14 @@ public class MainApp {
 								LOGGER.info("The ID of the product for updating: ");
 
 								int productIdUpdated=scan.nextInt();
-								Product productUpdate = Products.findProduct(productIdUpdated);
+								Product productUpdate = AppProducts.findProduct(productIdUpdated);
 								if(productUpdate==null)
 								{
-									Products.noProduct();
+									AppProducts.noProduct();
 									scan.nextLine();
 									break;
 								}
-								Products.displayProduct(productUpdate);
+								AppProducts.displayProduct(productUpdate);
 								LOGGER.info("---------------Update Product---------------");
 								LOGGER.info("1- Change Name");
 								LOGGER.info("2- Change Status");
@@ -348,7 +348,7 @@ public class MainApp {
 									LOGGER.info("The name of the Product you want to update: ");
 
 									productUpdate.setName(scan.nextLine());
-									Products.displayProduct(productUpdate);
+									AppProducts.displayProduct(productUpdate);
 									
 								}
 								else if(openProFind.equals("2"))
@@ -372,14 +372,14 @@ public class MainApp {
 										else if(statusNumber.equals("2"))
 										{
 											statusNumber="in treatment";
-											int idWorkerUpdated=Workers.getAvailableWorkerId();
+											int idWorkerUpdated=AppWorkers.getAvailableWorkerId();
 											if(idWorkerUpdated==-1)
 											{
 												LOGGER.warning("No available worker");
 												continue;
 											}
-											Products.getProducts().get(productIdUpdated).setIdWorker(idWorkerUpdated);
-											Workers.getWorkers().get(idWorkerUpdated).setAvailable(false);
+											AppProducts.getProducts().get(productIdUpdated).setIdWorker(idWorkerUpdated);
+											AppWorkers.getWorkers().get(idWorkerUpdated).setAvailable(false);
 											break;
 										}
 										else if(statusNumber.equals("3"))
@@ -390,7 +390,7 @@ public class MainApp {
 												continue;
 											}
 											statusNumber="complete";
-											Workers.getWorkers().get(Products.getProducts().get(productIdUpdated).getIdWorker()).setAvailable(true);
+											AppWorkers.getWorkers().get(AppProducts.getProducts().get(productIdUpdated).getIdWorker()).setAvailable(true);
 											break;
 										}
 										else if(statusNumber.equals("4"))
@@ -406,7 +406,7 @@ public class MainApp {
 									}
 									
 									productUpdate.setStatus(statusNumber);
-									Products.displayProduct(productUpdate);
+									AppProducts.displayProduct(productUpdate);
 								}
 								else if(openProFind.equals("3"))
 								{
@@ -428,12 +428,12 @@ public class MainApp {
 						{
 							LOGGER.info("The ID of the product for deleting: ");
 
-							Product productDelete = Products.findProduct(scan.nextInt());
+							Product productDelete = AppProducts.findProduct(scan.nextInt());
 							scan.nextLine();
-							Products.deleteProduct(productDelete);
+							AppProducts.deleteProduct(productDelete);
 							if(productDelete==null)
 							{
-								Products.noProduct();
+								AppProducts.noProduct();
 							}
 							else
 							{

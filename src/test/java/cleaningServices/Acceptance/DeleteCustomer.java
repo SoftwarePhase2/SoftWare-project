@@ -2,7 +2,7 @@ package cleaningServices.Acceptance;
 
 import static org.junit.Assert.assertEquals;
 
-import cleaning.services.staticdatabase.Customers;
+import cleaning.services.staticdatabase.AppCustomers;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import model.Customer;
@@ -11,17 +11,17 @@ public class DeleteCustomer {
 	Customer customerForDelete;
 	@Given("there is a customer with id {int}")
 	public void thereIsACustomerWithId(Integer id) {
-		customerForDelete = Customers.findCustomer(id);
+		customerForDelete = AppCustomers.findCustomer(id);
 	}
 
 	@Then("the customer will be deleted from the customer list")
 	public void theCustomerWillBeDeletedFromTheCustomerList() {
-		Customers.deleteCustomer(customerForDelete);
+		AppCustomers.deleteCustomer(customerForDelete);
 	}
 
 	@Then("the message that the customer is not exist will be print")
 	public void theMessageThatTheCustomerIsNotExistWillBePrint() {
-		Customers.noCustomer();
+		AppCustomers.noCustomer();
 	}
 
 }

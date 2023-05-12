@@ -3,7 +3,6 @@ package cleaning.services;
 import java.util.logging.Logger;
 
 import cleaning.services.staticdatabase.AdminDB;
-import cleaning.services.staticdatabase.Customers;
 import model.AdminInfo;
 
 public class MyAppInfo {
@@ -22,8 +21,7 @@ public class MyAppInfo {
 		isLoggedIn=false;
 	}
 	public void refuseLoggIn() {
-		System.out.println("The username or the password is not correct");
-
+		LOGGER.info("The username or the password is not correct");
 	}
 	public void login() {
 		isLoggedIn=true;

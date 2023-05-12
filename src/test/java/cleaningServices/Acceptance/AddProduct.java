@@ -6,9 +6,9 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
-import cleaning.services.staticdatabase.Customers;
-import cleaning.services.staticdatabase.Products;
-import cleaning.services.staticdatabase.Workers;
+import cleaning.services.staticdatabase.AppCustomers;
+import cleaning.services.staticdatabase.AppProducts;
+import cleaning.services.staticdatabase.AppWorkers;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import model.Customer;
@@ -42,7 +42,7 @@ public void theCustomerIdIs(Integer idCustomer) {
 
 @Given("there is an available worker with id")
 public void thereIsAnAvailableWorkerWithId() {
-	idWorker=Workers.getAvailableWorkerId();
+	idWorker=AppWorkers.getAvailableWorkerId();
 	
 }
 
@@ -50,10 +50,10 @@ public void thereIsAnAvailableWorkerWithId() {
 
 @Then("the product will be saved in the product list with in treatment state")
 public void theProductWillBeSavedInTheProductListWithInTreatmentState() {
-	int numOfProductBeforeAdd=Products.getProducts().size();
+	int numOfProductBeforeAdd=AppProducts.getProducts().size();
 	product=new Product(id,name,category,width,height,desc,idCustomer,idWorker,"in treatment");
-	Products.addProduct(product);
-	int numOfProductAfterAdd=Products.getProducts().size();
+	AppProducts.addProduct(product);
+	int numOfProductAfterAdd=AppProducts.getProducts().size();
 	assertEquals(numOfProductBeforeAdd+1,numOfProductAfterAdd);
 	assertEquals("in treatment",product.getStatus());
 
@@ -64,17 +64,17 @@ public void theProductWillBeSavedInTheProductListWithInTreatmentState() {
 
 @Given("there is not an available worker")
 public void thereIsNotAnAvailableWorker() {
-	idWorker=Workers.getAvailableWorkerId();
+	idWorker=AppWorkers.getAvailableWorkerId();
 	
 
 }
 
 @Then("the product will be saved in the product list with waiting state")
 public void theProductWillBeSavedInTheProductListWithWaitingState() {
-	int numOfProductBeforeAdd=Products.getProducts().size();
+	int numOfProductBeforeAdd=AppProducts.getProducts().size();
 	product=new Product(id,name,category,width,height,desc,idCustomer,idWorker,"waiting");
-	Products.addProduct(product);
-	int numOfProductAfterAdd=Products.getProducts().size();
+	AppProducts.addProduct(product);
+	int numOfProductAfterAdd=AppProducts.getProducts().size();
 	assertEquals(numOfProductBeforeAdd+1,numOfProductAfterAdd);
 	assertEquals( "waiting",product.getStatus());
 }
@@ -82,15 +82,15 @@ public void theProductWillBeSavedInTheProductListWithWaitingState() {
 
 @Then("the worker will be not available")
 public void theWorkerWillBeNotAvailable() {
-	Workers.getWorkers().get(idWorker).setAvailable(false);
-	assertNotEquals(Workers.getAvailableWorkerId(),idWorker);
+	AppWorkers.getWorkers().get(idWorker).setAvailable(false);
+	assertNotEquals(AppWorkers.getAvailableWorkerId(),idWorker);
 	
 	
 }
 @Then("the product will not be saves and error message will appear")
 public void theProductWillNotBeSavesAndErrorMessageWillAppear() {
-	assertNull(Products.findProduct(idCustomer));
-	Products.noProduct();
+	assertNull(AppProducts.findProduct(idCustomer));
+	AppProducts.noProduct();
 
 }
 

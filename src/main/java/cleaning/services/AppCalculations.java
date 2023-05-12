@@ -1,6 +1,6 @@
 package cleaning.services;
 
-import cleaning.services.staticdatabase.Products;
+import cleaning.services.staticdatabase.AppProducts;
 import model.Product;
 
 public class AppCalculations {
@@ -27,7 +27,7 @@ public class AppCalculations {
 	
 	public static Integer calculatePriceForAllProducts(int id) {
 		int sum=0;
-		for(Product prodcut:Products.getProducts())
+		for(Product prodcut:AppProducts.getProducts())
 		{
 			if(prodcut.getIdCustomer()==id)
 			{
