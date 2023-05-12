@@ -274,7 +274,7 @@ public class MainApp {
 							if(AppCalculations.calculatePriceForAllProducts(idCustomer)>400)
 							{
 								LOGGER.info("Congratulations you have a discount because you use the service with an amount of money > 400 ");
-								LOGGER.info("The old price is: {}",""+ AppCalculations.calculatePrice(height, width, catogery));
+								LOGGER.info("The old price is: " + AppCalculations.calculatePrice(height, width, catogery));
 								LOGGER.info("The new price is: " + AppCalculations.calculatePriceWithDiscount(height, width, catogery));
 							}
 							else
