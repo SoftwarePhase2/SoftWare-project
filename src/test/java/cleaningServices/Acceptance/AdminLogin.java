@@ -7,11 +7,11 @@ import cleaning.services.MyAppInfo;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
-public class AdminLoginTest {
+public class AdminLogin {
 
 	MyAppInfo myAppInfo;
 	String password,username;
-	public AdminLoginTest()
+	public AdminLogin()
 	{
 		myAppInfo = new MyAppInfo();
 	}

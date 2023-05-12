@@ -1,8 +1,15 @@
 package model;
 
 public class Product {
-	private String category, name,description,status;
-	private int id,width,height, idCustomer,idWorker;
+	private String category;
+	private String name;
+	private String description;
+	private String status;
+	private int id;
+	private int width;
+	private int height;
+	private int idCustomer;
+	private int idWorker;
 
 
 
@@ -77,13 +84,6 @@ public class Product {
 		this.description = description;
 	}
 
-	public int getLength() {
-		return width;
-	}
-
-	public void setLength(int width) {
-		this.width = width;
-	}
 
 	public int getHeight() {
 		return height;

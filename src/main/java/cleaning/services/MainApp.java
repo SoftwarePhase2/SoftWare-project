@@ -11,6 +11,9 @@ import model.Product;
 
 public class MainApp {
 	   private static final Logger LOGGER = Logger.getLogger(MainApp.class.getName());
+	   private String VALID_INPUT = "Please enter valid input";
+	   private String BACK = "3- Back";
+	   private static String WAITING = "waiting";
 
 	
 	public static void main(String[] args) {
@@ -24,8 +27,11 @@ public class MainApp {
 		{
 		    LOGGER.info("Enter username: ");
 			String username=scan.nextLine().trim();
-			if(username.equals("exit"))break;
-		    LOGGER.info("Enter password: ");
+			if(username.equals("exit"))
+			{
+				break;
+			}
+			LOGGER.info("Enter password: ");
 			myAppInfo.loggInCheck(username,scan.nextLine());
 			if(!myAppInfo.isLoggedIn())
 			{
@@ -81,7 +87,7 @@ public class MainApp {
 								LOGGER.info("---------------Find Customers---------------");
 								LOGGER.info("1- Find Customer By ID");
 								LOGGER.info("2- Find Customers By Name");
-								LOGGER.info("3- Back");
+								LOGGER.info("BACK");
 								String openCusFind=scan.nextLine();
 								if(openCusFind.equals("1"))
 								{
@@ -101,7 +107,7 @@ public class MainApp {
 								}
 								else 
 								{
-									LOGGER.warning("Please enter valid input");
+									LOGGER.warning("VALID_INPUT");
 								}
 
 								
@@ -152,7 +158,7 @@ public class MainApp {
 								}
 								else 
 								{
-									LOGGER.info("Please enter valid input");
+									LOGGER.warning("VALID_INPUT");
 
 								}
 								
@@ -180,7 +186,7 @@ public class MainApp {
 						}
 						else
 						{
-							LOGGER.info("Please enter valid input");
+							LOGGER.warning("VALID_INPUT");
 
 						}
 						
@@ -254,7 +260,7 @@ public class MainApp {
 							
 							if(idWorker==-1)
 							{
-								status="waiting";
+								status=WAITING;
 								LOGGER.info("The product is in waiting status");
 							}
 							else
@@ -268,7 +274,7 @@ public class MainApp {
 							if(AppCalculations.calculatePriceForAllProducts(idCustomer)>400)
 							{
 								LOGGER.info("Congratulations you have a discount because you use the service with an amount of money > 400 ");
-								LOGGER.info("The old price is: " + AppCalculations.calculatePrice(height, width, catogery));
+								LOGGER.info("The old price is: {}",""+ AppCalculations.calculatePrice(height, width, catogery));
 								LOGGER.info("The new price is: " + AppCalculations.calculatePriceWithDiscount(height, width, catogery));
 							}
 							else
@@ -285,7 +291,7 @@ public class MainApp {
 								LOGGER.info("---------------Find Products---------------");
 								LOGGER.info("1- Find Product By ID");
 								LOGGER.info("2- Find Products By Name");
-								LOGGER.info("3- Back");
+								LOGGER.info("BACK");
 
 								String openProFind=scan.nextLine();
 								if(openProFind.equals("1"))
@@ -307,7 +313,7 @@ public class MainApp {
 								}
 								else 
 								{
-									LOGGER.warning("Please enter valid input");
+									LOGGER.warning("VALID_INPUT");
 
 
 								}
@@ -333,7 +339,7 @@ public class MainApp {
 								LOGGER.info("---------------Update Product---------------");
 								LOGGER.info("1- Change Name");
 								LOGGER.info("2- Change Status");
-								LOGGER.info("3- Back");
+								LOGGER.info("BACK");
 
 								scan.nextLine();
 								String openProFind=scan.nextLine();
@@ -360,7 +366,7 @@ public class MainApp {
 										String prevStatus=productUpdate.getStatus();
 										if(statusNumber.equals("1"))
 										{
-											statusNumber="waiting";
+											statusNumber=WAITING;
 											break;
 										}
 										else if(statusNumber.equals("2"))
@@ -378,13 +384,13 @@ public class MainApp {
 										}
 										else if(statusNumber.equals("3"))
 										{
-											if(prevStatus.equals("waiting"))
+											if(prevStatus.equals(WAITING))
 											{
 												LOGGER.info("This product does not cleaned yet");
 												continue;
 											}
 											statusNumber="complete";
-											Workers.getWorkers().get(Products.getProducts().get(productIdUpdated).getIdWorker()).setAvailable(true);;
+											Workers.getWorkers().get(Products.getProducts().get(productIdUpdated).getIdWorker()).setAvailable(true);
 											break;
 										}
 										else if(statusNumber.equals("4"))
@@ -408,7 +414,7 @@ public class MainApp {
 								}
 								else 
 								{
-									LOGGER.warning("Please enter valid input");
+									LOGGER.warning("VALID_INPUT");
 
 
 								}
@@ -441,7 +447,7 @@ public class MainApp {
 						}
 						else
 						{
-							LOGGER.warning("Please enter valid input");
+							LOGGER.warning("VALID_INPUT");
 
 						}
 					}
@@ -455,7 +461,7 @@ public class MainApp {
 				}
 				else 
 				{
-					LOGGER.info("Please enter valid input");
+					LOGGER.warning("VALID_INPUT");
 
 				}
 				
@@ -463,7 +469,7 @@ public class MainApp {
 				}
 				catch (Exception e)
 				{
-					LOGGER.info("Please enter valid input");
+					LOGGER.warning("VALID_INPUT");
 
 					scan.nextLine();
 				}

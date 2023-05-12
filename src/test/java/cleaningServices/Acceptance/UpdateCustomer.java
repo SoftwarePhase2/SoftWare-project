@@ -18,7 +18,7 @@ public class UpdateCustomer {
 
 	@Then("the customer's name should be {string}")
 	public void theCustomerSNameShouldBe(String name) {
-		assertTrue(customer.getName().equals(name));
+		assertEquals(customer.getName(),name);
 	}
 
 	@When("the admin want to change the address of the customer to {string}")
@@ -29,7 +29,7 @@ public class UpdateCustomer {
 
 	@Then("the customer's address should be {string}")
 	public void theCustomerSAddressShouldBe(String address) {
-		assertTrue(customer.getAddress().equals(address));
+		assertEquals(customer.getAddress(),address);
 	   
 	}
 
@@ -41,7 +41,7 @@ public class UpdateCustomer {
 
 	@Then("the customer's phone should be {int}")
 	public void theCustomerSPhoneShouldBe(Integer phone) {
-		assertTrue(customer.getPhone()==phone);
+		assertEquals((int)phone, customer.getPhone());
 
 	   
 	}

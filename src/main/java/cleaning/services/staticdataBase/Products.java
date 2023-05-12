@@ -2,17 +2,26 @@ package cleaning.services.staticdatabase;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import model.Customer;
+import java.util.logging.*;
 import model.Product;
 
 public class Products {
-	private static List<Product> products=new ArrayList<Product>(){{
-        add(new Product(0,"pro1","carpets",15,20,"desc",1,1,"complete"));
-        add(new Product(1,"pro2","covers",10,20,"desc",0,2,"complete"));
-        add(new Product(2,"pro3","covers",10,20,"desc",1,0,"complete"));
-        }};
+	   private static final Logger LOGGER = Logger.getLogger(Products.class.getName());
+	   private static String COMPLETE = "complete";  // Compliant
 
+	   private static List<Product> products=new ArrayList();
+
+	   private Products() {
+		    throw new IllegalStateException("Utility class");
+	   }
+        static
+        {
+        	LOGGER.setLevel(Level.INFO);
+        	products.add(new Product(0,"pro1","carpets",15,20,"desc",1,1,COMPLETE));
+        	products.add(new Product(1,"pro2","covers",10,20,"desc",0,2,COMPLETE));
+        	products.add(new Product(2,"pro3","covers",10,20,"desc",1,0,COMPLETE));
+        	
+        }
 
 	public static List<Product> getProducts() {
 		return products;
@@ -37,10 +46,10 @@ public class Products {
 	public static void displayProduct(Product product) {
 		if(product==null)
 		{
-			System.out.println("This product is not exist");
+			LOGGER.info("This product is not exist");
 		}
 		else 
-			System.out.println(" Id: "+product.getId()+" name: "+product.getName()+"    category: "+product.getCategory()+"	description: "+product.getDescription()+"	width: "+product.getLength()+" height: "+product.getHeight()+" owner customer id: "+product.getIdCustomer()+" worker id: "+product.getIdWorker()+" status: "+product.getStatus());
+			LOGGER.info(" Id: "+product.getId()+" name: "+product.getName()+"\tcategory: "+product.getCategory()+"\tdescription: "+product.getDescription()+"\twidth: "+product.getWidth()+" height: "+product.getHeight()+" owner customer id: "+product.getIdCustomer()+" worker id: "+product.getIdWorker()+" status: "+product.getStatus());
 	}
 	public static void displayProducts(List<Product> product) {
 		for(Product p:product)
@@ -55,7 +64,7 @@ public class Products {
 	}
 
 	public static void noProduct() {
-		System.out.println("The Product Is Not Exist");		
+		LOGGER.warning("The Product Is Not Exist");
 	}
 
 	public static List<Product> findProductsByName(String name) {

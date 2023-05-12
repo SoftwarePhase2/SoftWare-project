@@ -4,14 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Customer;
-import model.Product;
 
 public class Customers {
-	private static List <Customer> customers=new ArrayList<Customer>(){{
-        add(new Customer(0,12345,"ahmad","jenin"));
-        add(new Customer(1,12345,"mohammad","jenin"));
-        add(new Customer(2,12345,"khaled","jenin"));
-        }};
+	private static List <Customer> customers=new ArrayList();
+        
+        static
+        {
+        	customers.add(new Customer(0,12345,"ahmad","jenin"));
+        	customers.add(new Customer(1,12345,"mohammad","jenin"));
+        	customers.add(new Customer(2,12345,"khaled","jenin"));
+        }
 
 
 	public static List<Customer> getCutomers() {
@@ -43,7 +45,7 @@ public class Customers {
 	}
 
 	public static List<Customer> findCustomerByName(String name) {
-		List<Customer> customersByName = new ArrayList<>();
+		List<Customer> customersByName = new ArrayList();
 		for(Customer c:customers)
 		{
 			if(c.getName().contains(name))

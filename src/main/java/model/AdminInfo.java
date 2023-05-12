@@ -1,7 +1,8 @@
 package model;
 
 public class AdminInfo {
-	private String username,password;
+	private String username;
+	private String password;
 	public AdminInfo(String username,String password) {
 		this.username=username;
 		this.password=password;
