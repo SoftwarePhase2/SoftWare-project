@@ -3,11 +3,13 @@ package cleaning.services.staticdatabase;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.*;
+
+import cleaning.services.AppLogger;
 import model.Product;
 
 public class Products {
 	   private static final Logger LOGGER = Logger.getLogger(Products.class.getName());
-	   private static String COMPLETE = "complete";  // Compliant
+	   private static final String COMPLETE = "complete";  // Compliant
 
 	   private static List<Product> products=new ArrayList();
 
@@ -16,7 +18,7 @@ public class Products {
 	   }
         static
         {
-        	LOGGER.setLevel(Level.INFO);
+        	AppLogger.setLevel(LOGGER);
         	products.add(new Product(0,"pro1","carpets",15,20,"desc",1,1,COMPLETE));
         	products.add(new Product(1,"pro2","covers",10,20,"desc",0,2,COMPLETE));
         	products.add(new Product(2,"pro3","covers",10,20,"desc",1,0,COMPLETE));

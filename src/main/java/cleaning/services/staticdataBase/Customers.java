@@ -3,19 +3,22 @@ package cleaning.services.staticdatabase;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.*;
+
+import cleaning.services.AppLogger;
 import model.Customer;
 
 public class Customers {
+	
 	
 	private Customers() {
 	    throw new IllegalStateException("Utility class");
 	}
 	private static final Logger LOGGER = Logger.getLogger(Customers.class.getName());
-	private static List <Customer> customers=new ArrayList();
+	private static List <Customer> customers=new ArrayList<Customer>();
         
         static
         {
-        	LOGGER.setLevel(Level.INFO);
+        	AppLogger.setLevel(LOGGER);
         	customers.add(new Customer(0,12345,"ahmad","jenin"));
         	customers.add(new Customer(1,12345,"mohammad","jerusalem"));
         	customers.add(new Customer(2,12345,"khaled","hebron"));

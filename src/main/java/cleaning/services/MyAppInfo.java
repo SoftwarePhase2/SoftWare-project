@@ -1,13 +1,18 @@
 package cleaning.services;
 
+import java.util.logging.Logger;
+
 import cleaning.services.staticdatabase.AdminDB;
+import cleaning.services.staticdatabase.Customers;
 import model.AdminInfo;
 
 public class MyAppInfo {
+	private static final Logger LOGGER = Logger.getLogger(MyAppInfo.class.getName());
 	private boolean isLoggedIn;
 	
 	public MyAppInfo() {
 		this.isLoggedIn = false;
+		AppLogger.setLevel(LOGGER);
 	}
 	
 	public boolean isLoggedIn() {

@@ -21,7 +21,7 @@ public class AppCalculations {
 		else return 0;
 	}
 
-	public static int calculatePriceWithDiscount(int height, int width, String catogery) {
+	public static Integer calculatePriceWithDiscount(int height, int width, String catogery) {
 		return (int) Math.round(calculatePrice(height,width,catogery)*(1-0.25));
 	}
 	

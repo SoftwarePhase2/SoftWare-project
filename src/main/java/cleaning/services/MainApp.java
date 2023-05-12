@@ -11,13 +11,13 @@ import model.Product;
 
 public class MainApp {
 	   private static final Logger LOGGER = Logger.getLogger(MainApp.class.getName());
-	   private String VALID_INPUT = "Please enter valid input";
-	   private String BACK = "3- Back";
-	   private static String WAITING = "waiting";
+	   private static final String VALID_INPUT = "Please enter valid input";
+	   private static final String BACK = "3- Back";
+	   private static final String WAITING = "waiting";
 
 	
 	public static void main(String[] args) {
-	    LOGGER.setLevel(Level.INFO);
+    	AppLogger.setLevel(LOGGER);
 		MyAppInfo myAppInfo=new MyAppInfo();
 		Scanner scan=new Scanner(System.in);
 		int customerId=3;
@@ -87,7 +87,7 @@ public class MainApp {
 								LOGGER.info("---------------Find Customers---------------");
 								LOGGER.info("1- Find Customer By ID");
 								LOGGER.info("2- Find Customers By Name");
-								LOGGER.info("BACK");
+								LOGGER.info(BACK);
 								String openCusFind=scan.nextLine();
 								if(openCusFind.equals("1"))
 								{
@@ -107,7 +107,7 @@ public class MainApp {
 								}
 								else 
 								{
-									LOGGER.warning("VALID_INPUT");
+									LOGGER.warning(VALID_INPUT);
 								}
 
 								
@@ -158,7 +158,7 @@ public class MainApp {
 								}
 								else 
 								{
-									LOGGER.warning("VALID_INPUT");
+									LOGGER.warning(VALID_INPUT);
 
 								}
 								
@@ -186,7 +186,7 @@ public class MainApp {
 						}
 						else
 						{
-							LOGGER.warning("VALID_INPUT");
+							LOGGER.warning(VALID_INPUT);
 
 						}
 						
@@ -274,8 +274,8 @@ public class MainApp {
 							if(AppCalculations.calculatePriceForAllProducts(idCustomer)>400)
 							{
 								LOGGER.info("Congratulations you have a discount because you use the service with an amount of money > 400 ");
-								LOGGER.info("The old price is: " + AppCalculations.calculatePrice(height, width, catogery));
-								LOGGER.info("The new price is: " + AppCalculations.calculatePriceWithDiscount(height, width, catogery));
+								LOGGER.info("The old price is: " + AppCalculations.calculatePrice(height, width, catogery).toString());
+								LOGGER.info("The new price is: " + AppCalculations.calculatePriceWithDiscount(height, width, catogery).toString());
 							}
 							else
 							{
@@ -291,7 +291,7 @@ public class MainApp {
 								LOGGER.info("---------------Find Products---------------");
 								LOGGER.info("1- Find Product By ID");
 								LOGGER.info("2- Find Products By Name");
-								LOGGER.info("BACK");
+								LOGGER.info(BACK);
 
 								String openProFind=scan.nextLine();
 								if(openProFind.equals("1"))
@@ -313,7 +313,7 @@ public class MainApp {
 								}
 								else 
 								{
-									LOGGER.warning("VALID_INPUT");
+									LOGGER.warning(VALID_INPUT);
 
 
 								}
@@ -339,7 +339,7 @@ public class MainApp {
 								LOGGER.info("---------------Update Product---------------");
 								LOGGER.info("1- Change Name");
 								LOGGER.info("2- Change Status");
-								LOGGER.info("BACK");
+								LOGGER.info(BACK);
 
 								scan.nextLine();
 								String openProFind=scan.nextLine();
@@ -414,7 +414,7 @@ public class MainApp {
 								}
 								else 
 								{
-									LOGGER.warning("VALID_INPUT");
+									LOGGER.warning(VALID_INPUT);
 
 
 								}
@@ -447,7 +447,7 @@ public class MainApp {
 						}
 						else
 						{
-							LOGGER.warning("VALID_INPUT");
+							LOGGER.warning(VALID_INPUT);
 
 						}
 					}
@@ -461,7 +461,7 @@ public class MainApp {
 				}
 				else 
 				{
-					LOGGER.warning("VALID_INPUT");
+					LOGGER.warning(VALID_INPUT);
 
 				}
 				
@@ -469,7 +469,7 @@ public class MainApp {
 				}
 				catch (Exception e)
 				{
-					LOGGER.warning("VALID_INPUT");
+					LOGGER.warning(VALID_INPUT);
 
 					scan.nextLine();
 				}
