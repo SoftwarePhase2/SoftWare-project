@@ -1,6 +1,6 @@
-package cleaningServices;
+package cleaning.services;
 
-import cleaningServices.StaticDataBase.AdminDB;
+import cleaning.services.staticdataBase.AdminDB;
 import model.AdminInfo;
 
 public class MyAppInfo {

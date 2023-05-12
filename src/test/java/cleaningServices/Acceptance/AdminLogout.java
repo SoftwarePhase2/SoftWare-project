@@ -3,7 +3,7 @@ package cleaningServices.Acceptance;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import cleaningServices.MyAppInfo;
+import cleaning.services.MyAppInfo;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 

@@ -2,7 +2,7 @@ package cleaningServices.Acceptance;
 
 import static org.junit.Assert.assertEquals;
 
-import cleaningServices.AppCalculations;
+import cleaning.services.AppCalculations;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 

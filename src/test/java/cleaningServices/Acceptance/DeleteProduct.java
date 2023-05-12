@@ -3,7 +3,7 @@ package cleaningServices.Acceptance;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
-import cleaningServices.StaticDataBase.Products;
+import cleaning.services.staticdataBase.Products;
 import io.cucumber.java.en.Then;
 import model.Product;
 

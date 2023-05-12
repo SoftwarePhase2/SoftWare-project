@@ -2,7 +2,7 @@ package cleaningServices.Acceptance;
 
 import java.util.List;
 
-import cleaningServices.StaticDataBase.Customers;
+import cleaning.services.staticdataBase.Customers;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

@@ -1,18 +1,24 @@
-package cleaningServices;
+package cleaning.services;
 
 import java.util.Scanner;
 
-import cleaningServices.StaticDataBase.Customers;
-import cleaningServices.StaticDataBase.Products;
-import cleaningServices.StaticDataBase.Workers;
+import cleaning.services.staticdataBase.Customers;
+import cleaning.services.staticdataBase.Products;
+import cleaning.services.staticdataBase.Workers;
+import java.util.logging.*;
 import model.Customer;
 import model.Product;
 
 public class MainApp {
+	   private static final Logger LOGGER = Logger.getLogger(MainApp.class.getName());
 
 	
 	public static void main(String[] args) {
-			
+	      LOGGER.setLevel(Level.INFO);
+
+//	      ConsoleHandler consoleHandler = new ConsoleHandler();
+//	      consoleHandler.setLevel(Level.ALL);
+//	      LOGGER.addHandler(consoleHandler);
 		
 		MyAppInfo myAppInfo=new MyAppInfo();
 		Scanner scan=new Scanner(System.in);
@@ -21,8 +27,9 @@ public class MainApp {
 		
 		while(true)
 		{
-			System.out.print("Enter username: ");
+		    LOGGER.info("Enter username: ");
 			String username=scan.nextLine().trim();
+			if(username.equals("exit"))break;
 			System.out.print("Enter password: ");
 			myAppInfo.loggInCheck(username,scan.nextLine());
 			if(!myAppInfo.isLoggedIn())

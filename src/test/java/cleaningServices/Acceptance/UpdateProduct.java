@@ -7,7 +7,7 @@ import model.Product;
 
 import static org.junit.Assert.assertTrue;
 
-import cleaningServices.StaticDataBase.*;
+import cleaning.services.staticdataBase.*;
 
 public class UpdateProduct {	
 

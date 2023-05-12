@@ -1,9 +1,13 @@
-package cleaningServices;
+package cleaning.services;
 
-import cleaningServices.StaticDataBase.Products;
+import cleaning.services.staticdataBase.Products;
 import model.Product;
 
 public class AppCalculations {
+	
+	private AppCalculations() {
+	    throw new IllegalStateException("Utility class");
+	  }
 
 	public static Integer calculatePrice(int height, int width, String catogery) {
 		if(catogery.equals("covers"))

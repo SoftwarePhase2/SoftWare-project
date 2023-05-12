@@ -1,4 +1,4 @@
-package cleaningServices.StaticDataBase;
+package cleaning.services.staticdataBase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +12,8 @@ public class AdminDB {
         add(new AdminInfo("mohammad","654da"));
         add(new AdminInfo("salah","Salah"));
         } };;
+        
+        
 
 
 	public static List<AdminInfo> getAdmins() {
